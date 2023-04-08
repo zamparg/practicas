@@ -5,3 +5,9 @@
     background-color: rgb(255, 145, 0);
     width: 30%;
 }
+
+.hide{
+    display: none;
+}
+.show{
+    display: inline-block;}
