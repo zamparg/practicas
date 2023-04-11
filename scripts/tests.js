@@ -301,3 +301,28 @@ Test: getOptimalPath([[1], [1, 5], [7, 5, 8], [9, 4, 1, 3], [-1, -1, -1, -1, -1]
     }
     return arbol
   }
+
+  // Ejercicio 16
+  function fixLetter(letter) {
+    let carta = letter.trim()
+    let procesado = carta.replace(/\s+/g, ' ')
+    if(!(procesado.endsWith(".")||procesado.endsWith("!")||procesado.endsWith("?"))){
+        procesado+='.'
+    }
+    carta=procesado.replace(/\?+/g, '?')
+    procesado = carta.replaceAll('santa claus', 'Santa Claus')
+    carta = procesado.replaceAll(' .', '.')
+    procesado = carta.replaceAll(' ,', ',')
+    carta=procesado.replaceAll('','')
+    carta=procesado.replaceAll('','')
+    procesado = carta.charAt(0).toUpperCase() + carta.slice(1)
+    return procesado
+  }
+  console.log(fixLetter(`  hi    santa    claus . santa claus is the best  `))
+
+
+
+
+//Dejar un espacio después de cada coma
+
+//La primera letra de cada oración debe estar en mayúscula
