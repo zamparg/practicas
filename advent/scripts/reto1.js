@@ -2,6 +2,11 @@ const contenido = document.getElementById("hide1");
 const boton = document.getElementById("change1")
 boton.addEventListener("click", change)
 
+const botonTest = document.getElementById("test1")
+botonTest.addEventListener("click", change)
+
+
+
 function change(){
     contenido.classList.toggle('hide')
     if(boton.textContent=='Ver más'){
