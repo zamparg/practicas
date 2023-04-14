@@ -306,23 +306,101 @@ Test: getOptimalPath([[1], [1, 5], [7, 5, 8], [9, 4, 1, 3], [-1, -1, -1, -1, -1]
   function fixLetter(letter) {
     let carta = letter.trim()
     let procesado = carta.replace(/\s+/g, ' ')
+    
     if(!(procesado.endsWith(".")||procesado.endsWith("!")||procesado.endsWith("?"))){
-        procesado+='.'
+      procesado+='.'
     }
     carta=procesado.replace(/\?+/g, '?')
-    procesado = carta.replaceAll('santa claus', 'Santa Claus')
-    carta = procesado.replaceAll(' .', '.')
-    procesado = carta.replaceAll(' ,', ',')
-    carta=procesado.replaceAll('','')
-    carta=procesado.replaceAll('','')
+    
     procesado = carta.charAt(0).toUpperCase() + carta.slice(1)
-    return procesado
+    
+    carta=procesado.split('. ').join('.')
+    procesado = carta.split(' .').join('.')
+    carta=procesado.split('.').join('. ')
+    procesado=carta.split(', ').join(',')
+    carta=procesado.split(' ,').join(',')
+    procesado=carta.split(',').join(', ')
+    carta=procesado.split(' ?').join('?')
+    procesado = carta.replaceAll('santa', 'Santa')
+    carta = procesado.replaceAll('claus', 'Claus')
+    procesado=carta.split('. ')
+    carta= procesado.map(el=>
+      el=el.charAt(0).toUpperCase() + el.slice(1)
+    )
+    procesado=carta.join('. ').split('? ')
+    carta= procesado.map(el=>
+      el=el.charAt(0).toUpperCase() + el.slice(1)
+    )
+    procesado=carta.join('? ').split('! ')
+    carta= procesado.map(el=>
+      el=el.charAt(0).toUpperCase() + el.slice(1)
+    )
+    procesado=carta.join('! ')
+
+    carta= procesado.trimEnd()
+    return carta
   }
-  console.log(fixLetter(`  hi    santa    claus . santa claus is the best  `))
+  console.log(fixLetter("  Hi Santa claus. I'm a girl from Barcelona , Spain . please, send me a bike.  Is it possible?"))
 
 
+//EJERCICIO 17
+
+function carryGifts(gifts, maxWeight) {
+  let result = []
+  let temporal = [gifts[0]]
+  let temporalNumber = temporal[0].length
 
 
-//Dejar un espacio después de cada coma
+  for(let index=1; index<gifts.length; index++){
+    if(gifts[index].length > maxWeight){break}
+    if(temporalNumber + (gifts[index].length) > maxWeight){
+      result.push(temporal[0])
+      temporal =[]
+      temporalNumber=gifts[index].length
+      temporal.push(gifts[index])
+    }else{
+      temporal.push(gifts[index])
+      let temporal2 = temporal.join(' ')
+      temporal=[temporal2]
+      temporalNumber+=gifts[index].length
+    }
+  }
+  result.push(temporal[0])
+  return result
+}
 
-//La primera letra de cada oración debe estar en mayúscula
+console.log(carryGifts(['toy', 'gamme', 'toy', 'bike'], 7))
+
+function dryNumber(dry, numbers) {
+  let result = []
+  let seco = dry.toString()
+  for(let i=0; i<=numbers; i++){
+    let number = i.toString()
+    if(number.includes(seco)){
+      result.push(parseInt(number))
+    }
+  }
+  return result
+}
+
+console.log(dryNumber(0, 8))
+
+
+function sortToys(toys, positions) {
+  let elem = toys.map(el =>{
+    let index = toys.indexOf(el)
+    let rta = {
+      'toy': el,
+      'pos':positions[index]
+    }
+    return rta
+  })
+  elem.sort((a,b)=> a.pos-b.pos)
+  result = elem.map(el=> el.toy)
+  return result
+}
+
+const toys = ['ball', 'doll', 'car', 'puzzle']
+const positions = [2, 3, 1, 0]
+
+console.log(sortToys(toys, positions))
