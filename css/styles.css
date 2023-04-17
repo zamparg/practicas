@@ -17,3 +17,11 @@
         padding: 0.2rem;
         overflow: scroll;
     }
+.img-practice{
+    height: 9rem !important;
+}
+.badge-lenguaje{
+    padding: 0;
+    padding-right: 0.45rem;
+
+}
