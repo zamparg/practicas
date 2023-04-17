@@ -40,10 +40,10 @@
           </div>
         </div>
     </nav>
-    <main class="container-fluid p-4">
-    <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-          <div class="h-100 p-5 text-bg-dark rounded-3">
+    <main class="container-fluid p-3">
+    <div class="row align-items-md-stretch ">
+        <div class="col-md-6 mt-1">
+          <div class="h-100 p-4 text-bg-dark rounded-3">
             <span class="badge text-bg-warning rounded-pill">Reto #1</span>
                 
             <h2 class="tittle-reto">¡Automatizando envolver Regalos de Navidad!</h2>
@@ -61,9 +61,21 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-            <pre>
+        <div class="col-md-6 mt-1" >
+          <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+            <form action="" class="mb-2 d-flex align-items-center gap-2 flex-wrap justify-content-center" >
+              <div class="">
+                
+                <input type="text" id="input1" name="input1" placeholder="regalo1, regalo2..." class="form-control">
+              </div>
+              <div>    
+                <button class="btn btn-outline-secondary" type="button" id="test1">Probar</button>
+                <button class="btn btn-outline-secondary mb-2 mt-2" type="button" id="view1">Ver Código</button>
+              </div>
+            </form>
+            <div id="screen1">
+            </div>
+            <pre class ="hide" id="code1">
 function wrapping(gifts) {
   let wrap = gifts.map((gift) =>
     ('*'.repeat(gift.length+2)) + 
@@ -71,13 +83,7 @@ function wrapping(gifts) {
     ('*'.repeat(gift.length+2))
   )
   return wrap
-}
-            </pre>
-            <form action="">
-                <label for="test1"></label>
-                <input type="text" id="test1" name="test1">
-                <button class="btn btn-outline-secondary" type="button">Probar</button>
-            </form>
+}</pre>
           </div>
         </div>
       </div>
