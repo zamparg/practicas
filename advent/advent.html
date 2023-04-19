@@ -42,6 +42,7 @@
     </nav>
     <main class="container-fluid p-3">
     <div class="row align-items-md-stretch ">
+      <!--RETO 1-->
         <div class="col-md-6 mt-1">
           <div class="h-100 p-4 text-bg-dark rounded-3">
             <span class="badge text-bg-warning rounded-pill">Reto #1</span>
@@ -57,7 +58,7 @@
                     
                 </div>
                 
-                <button class="btn btn-outline-light" type="button" id="change1">Ver más</button>
+                <button class="btn btn-outline-light" type="button" id="change1">Ver Más</button>
             </div>
           </div>
         </div>
@@ -86,11 +87,60 @@ function wrapping(gifts) {
 }</pre>
           </div>
         </div>
+        <!--RETO 2-->
+        <div class="col-md-6 mt-1">
+          <div class="h-100 p-4 text-bg-dark rounded-3">
+            <span class="badge text-bg-warning rounded-pill">Reto #2</span>
+                
+            <h2 class="tittle-reto">¡Nadie quiere hacer horas extras!</h2>
+            <div id="contenido2">
+                <div class ="hide" id="hide2">
+                    <p>Un millonario ha comprado una red social y no trae buenas noticias. Ha anunciado que cada vez que una jornada de trabajo se pierde por un día festivo, habrá que compensarlo con dos horas extra otro día de ese mismo año.</p>
+
+                    <p>Obviamente la gente que trabaja en la empresa no le ha hecho ni pizca de gracia y están preparando un programa que les diga el número de horas extras que harían en el año si se aplicara la nueva norma.</p>
+                      
+                    <p>Al ser trabajo de oficina, su horario laboral es de lunes a viernes. Así que sólo tienes que preocuparte de los días festivos que caen en esos días.</p>
+                      
+                    <p>Dado un año y un array con las fechas de los días festivos, devuelve el número de horas extra que se harían ese año</p>
+                    
+                </div>
+                
+                <button class="btn btn-outline-light" type="button" id="change2">Ver Más</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mt-1" >
+          <div class="h-100 p-4 bg-body-tertiary border rounded-3">
+            <form action="" class="mb-2 d-flex align-items-center gap-2 flex-wrap justify-content-center" >
+              <div class="">
+                <input type="text" id="input2" name="input2" placeholder="año" class="form-control">
+                <input type="text" id="input2b" name="input2" placeholder="'01/06', '04/01', '12/25'" class="form-control">
+              </div>
+              <div>    
+                <button class="btn btn-outline-secondary" type="button" id="test2">Probar</button>
+                <button class="btn btn-outline-secondary mb-2 mt-2" type="button" id="view2">Ver Código</button>
+              </div>
+            </form>
+            <div id="screen2">
+            </div>
+            <pre class ="hide" id="code2">
+function countHours(year, holidays) {
+let fest = 0
+holidays.forEach(day =>{
+let date = (new Date (`${day}/${year}`)).getDay()
+if(date != 0 && date != 6){
+      fest+=2
+  }
+})
+return fest
+}</pre>
+          </div>
+        </div>
       </div>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="./scripts/reto1.js"></script>
-
+    <script src="./scripts/reto2.js"></script>
 </body>
 </html>

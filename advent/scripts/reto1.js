@@ -1,26 +1,29 @@
 const contenido = document.getElementById("hide1");
 const boton = document.getElementById("change1")
-boton.addEventListener("click", change)
+boton.addEventListener("click", function(){change(contenido, boton)})
 
 const codigo = document.getElementById("code1");
 const botonCodigo = document.getElementById("view1")
-botonCodigo.addEventListener("click", changeCodigo)
+botonCodigo.addEventListener("click",function(){
+    changeCodigo(codigo, botonCodigo);
+} )
 
 const botonTest = document.getElementById("test1")
-botonTest.addEventListener("click", test)
+botonTest.addEventListener("click", test1)
 
 
 
-function change(){
+function change(contenido, boton){
     contenido.classList.toggle('hide')
-    if(boton.textContent=='Ver más'){
+
+    if(boton.textContent=='Ver Más'){
         boton.textContent= 'Ver Menos'
     } else{
-        boton.textContent= 'Ver Más'
+        boton.textContent='Ver Más'
     }
 }
 
-function changeCodigo(){
+function changeCodigo(codigo, botonCodigo){
     codigo.classList.toggle('hide')
     if(botonCodigo.textContent=='Ver Código'){
         botonCodigo.textContent= 'Ocultar Código'
@@ -29,8 +32,8 @@ function changeCodigo(){
     }
 }
 
-function test(){
-    let ingress = document.getElementById("input1").value.replace(/ /g, "")
+function test1(){
+    let ingress = document.getElementById('input1').value.replace(/ /g, "")
     let tester = ingress.split(',')
     let result= wrapping(tester)
     console.log(result)

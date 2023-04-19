@@ -404,3 +404,65 @@ const toys = ['ball', 'doll', 'car', 'puzzle']
 const positions = [2, 3, 1, 0]
 
 console.log(sortToys(toys, positions))
+
+
+
+const reindeerTypes = [
+  { type: 'Nuclear', weightCapacity: 50 },
+  { type: 'Electric', weightCapacity: 10 },
+  { type: 'Gasoline', weightCapacity: 5 },
+  { type: 'Diesel', weightCapacity: 1 }
+]
+
+const gifts = [
+  { country: 'Spain', weight: 30 },
+  { country: 'France', weight: 17 },
+  { country: 'Italy', weight: 50 }
+]
+
+
+console.log(howManyReindeers(reindeerTypes, gifts))
+
+function howManyReindeers(reindeerTypes, gifts){
+  let renos=reindeerTypes.sort((a,b)=> a.weight-b.weight)
+  let result=[]
+  console.log(renos);
+  //desde acá dentro de forEach
+  gifts.forEach(country=>{
+    let numMax = country.weight
+    let num=numMax
+    let cantLast=0
+    
+    let countryR={
+      country: country.country,
+      reindeers:[]
+    }
+  
+    for(let i=0; i<renos.length;i++){
+      let reindeerW=renos[i].weightCapacity
+
+      if(reindeerW<=num){
+        let cant= parseInt(num/reindeerW)>=cantLast?parseInt(num/reindeerW):0
+        if (cant==0){break}
+        cantLast=cant
+        num=num%reindeerW
+        let result ={
+          type: renos[i].type, 
+          num: cant
+        }
+        countryR.reindeers.push(result)
+      }
+    }
+  result.push(countryR)
+})
+  return result
+}
+
+
+  //   country: 'Spain',
+  //   reindeers: [
+  //     { type: 'Electric', num: 1 },
+  //     { type: 'Gasoline', num: 3 },
+  //     { type: 'Diesel', num: 5 }
+  //   ]
+  // }
