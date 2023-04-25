@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1 id="title">Title</h1>
+    <p id="description">description</p>
+    <form action="" id="survey-form">
+        <label id="name-label"> Name:
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </label>
+        <label id="email-label"> Email
+            <input type="email" id="email" name="email" placeholder="Enter your Email"required>
+        </label>
+        <label id="number-label"> Age <span>(optional)</span>
+            <input type="number" id="number" name="number" placeholder="Enter your number" required min="0" max="12">
+        </label>
+        <select name="dropdown" id="dropdown">
+            <option disabled="" selected="" value="">Select an option</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+        </select>
+
+        <label><input id="indoor" type="radio" name="indoor-outdoor" value="indoor" checked> Indoor</label>
+        <label><input id="outdoor" type="radio" name="indoor-outdoor" value="outdoor"> Outdoor</label>
+
+        <!--Check-->
+        <input id="loving" type="checkbox" name="personality" value="loving" checked> <label for="loving">Loving</label>
+        <input id="lazy" type="checkbox" name="personality" value="lazy"> <label for="lazy">Lazy</label>
+        <input id="energetic" type="checkbox" name="personality" value="energetic"> <label for="energetic">Energetic</label>
+
+        <!--TextArea-->
+        <label> Comments:
+        <textarea name="comments" id="comments" cols="30" rows="10"></textarea></label>
+
+        <button id="submit">Submit</button>
+    </form>
+
+    <script src="./freecode.js"></script>
+</body>
+</html>
